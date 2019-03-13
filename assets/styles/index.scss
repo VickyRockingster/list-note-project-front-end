@@ -1,5 +1,74 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  background-color: #f7f1f1;
+}
+
+button {
+  background-color: #d43232;
+  color: #f7f1f1;
+}
+
+h3 {
+  font-weight: bold;
+  margin-top: 5vh;
+  text-align: center;
+  text-decoration: underline;
+}
+
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 20px;
+  margin-right: 2vw;
+}
+
+div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+  > form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    text-align: center;
+
+    > button {
+      margin-top: 1vh;
+    }
+
+    > input {
+      margin: 0;
+      text-align: center;
+    }
+
+    > label {
+      font-size: 1.5rem;
+      font-weight: 450;
+      margin-bottom: 0;
+      margin-top: 3vh;
+    }
+  }
+}
+
+h1 {
+  border: 10px;
+  font-size: 65px;
+  min-width: 370px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.error {
+  background-color: red;
+}
+
 .hidden {
   display: none;
+}
+
+#user-feedback {
+  height: 25px;
 }

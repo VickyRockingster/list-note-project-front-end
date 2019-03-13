@@ -7,6 +7,10 @@ const signUpSuccess = function () {
 const signInSuccess = function (data) {
   $('#user-feedback').html('You have successfully signed in!')
   $('#sign-in').trigger('reset')
+  $('nav').removeClass('hidden')
+  $('#account').addClass('hidden')
+  $('.authentication').addClass('hidden')
+  $('.account-page').removeClass('hidden')
   store.user = data.user
   setTimeout(() => {
     $('#user-feedback').html('')

@@ -26,34 +26,24 @@ const onGetErrands = (event) => {
 const showAccountPage = (event) => {
   event.preventDefault()
 
-  $('nav').removeClass('hidden')
+  $('#my-lists').removeClass('hidden')
   $('#account').addClass('hidden')
-  $('section').addClass('hidden')
+  $('.my-lists-page').addClass('hidden')
   $('.account-page').removeClass('hidden')
 }
 
 const showMyListsPage = (event) => {
   event.preventDefault()
 
-  $('nav').removeClass('hidden')
   $('#my-lists').addClass('hidden')
-  $('section').addClass('hidden')
+  $('#account').removeClass('hidden')
   $('.my-lists-page').removeClass('hidden')
-}
-
-const showCreateListsPage = (event) => {
-  event.preventDefault()
-
-  $('nav').removeClass('hidden')
-  $('#create-lists').addClass('hidden')
-  $('section').addClass('hidden')
-  $('.create-lists-page').removeClass('hidden')
+  $('.account-page').addClass('hidden')
 }
 
 const addHandlers = function () {
   $('#account').on('submit', showAccountPage)
   $('#my-lists').on('submit', showMyListsPage)
-  $('#create-lists').on('submit', showCreateListsPage)
 }
 
 module.exports = {
