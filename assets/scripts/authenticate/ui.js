@@ -1,7 +1,6 @@
 const store = require('../store.js')
 
 const signUpSuccess = function () {
-  $('#user-feedback').html('You have successfully signed up!')
   $('#sign-up').trigger('reset')
 }
 
@@ -9,17 +8,26 @@ const signInSuccess = function (data) {
   $('#user-feedback').html('You have successfully signed in!')
   $('#sign-in').trigger('reset')
   store.user = data.user
+  setTimeout(() => {
+    $('#user-feedback').html('')
+  }, 3000)
 }
 
 const signOutSuccess = function (data) {
+  store.user = null
   $('#user-feedback').html('You have successfully signed out!')
   $('#sign-out').trigger('reset')
-  store.user = null
+  setTimeout(() => {
+    $('#user-feedback').html('')
+  }, 3000)
 }
 
 const changePasswordSuccess = function () {
   $('#user-feedback').html('You have successfully changed passwords!')
   $('form').trigger('reset')
+  setTimeout(() => {
+    $('#user-feedback').html('')
+  }, 3000)
 }
 
 const failure = function () {

@@ -8,6 +8,10 @@ const onSignUp = (event) => {
 
   authApi.signUp(data)
     .then(authUi.signUpSuccess)
+    .then(() => {
+      authApi.signIn(data)
+        .then(authUi.signInSuccess)
+    })
     .catch(authUi.failure)
 }
 
