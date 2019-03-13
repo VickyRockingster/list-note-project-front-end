@@ -1,6 +1,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const authApi = require('./api.js')
 const authUi = require('./ui.js')
+const errandEvents = require('../errands/events.js')
 
 const onSignUp = (event) => {
   event.preventDefault()
@@ -11,6 +12,7 @@ const onSignUp = (event) => {
     .then(() => {
       authApi.signIn(data)
         .then(authUi.signInSuccess)
+        .then(errandEvents.showAccountPage)
     })
     .catch(authUi.failure)
 }
@@ -22,6 +24,7 @@ const onSignIn = (event) => {
   authApi.signIn(data)
     .then(authUi.signInSuccess)
     .catch(authUi.failure)
+    .then(errandEvents.showAccountPage)
 }
 
 const onSignOut = (event) => {
@@ -31,6 +34,11 @@ const onSignOut = (event) => {
   authApi.signOut(data)
     .then(authUi.signOutSuccess)
     .catch(authUi.failure)
+    .then(() => {
+      $('nav').addClass('hidden')
+      $('section').addClass('hidden')
+      $('.authentication').removeClass('hidden')
+    })
 }
 
 const onChangePassword = (event) => {
