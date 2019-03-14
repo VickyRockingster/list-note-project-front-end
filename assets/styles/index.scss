@@ -23,46 +23,88 @@ nav {
   margin-right: 2vw;
 }
 
-div {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-
-  > form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5vh;
-    text-align: center;
-
-    > button {
-      margin-top: 1vh;
-    }
-
-    > input {
-      margin: 0;
-      text-align: center;
-    }
-
-    > label {
-      font-size: 1.5rem;
-      font-weight: 450;
-      margin-bottom: 0;
-      margin-top: 3vh;
-    }
-  }
-}
 
 h1 {
   border: 10px;
   font-size: 65px;
+  font-weight: bold;
   min-width: 370px;
   padding: 10px;
   text-align: center;
 }
 
+.account-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 5vw;
+
+  > div {
+    align-items: center;
+    border: solid #680404;
+    display: flex;
+    flex-flow: row wrap;
+    height: 15vh;
+
+    > label {
+      font-size: 30px;
+      font-weight: bold;
+      padding-left: 1vw;
+      padding-right: 2vw;
+    }
+
+    > form {
+      > label {
+        font-size: 30px;
+        font-weight: bold;
+        padding-left: 1vw;
+        padding-right: .5vw;
+      }
+
+      > input {
+        font-size: 18px;
+      }
+    }
+    > span {
+      font-size: 25px;
+    }
+  }
+
+}
+
+.authentication {
+  div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    > form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 5vh;
+      text-align: center;
+
+      > button {
+        margin-top: 1vh;
+      }
+
+      > input {
+        margin: 0;
+        text-align: center;
+      }
+
+      > label {
+        font-size: 1.5rem;
+        font-weight: 450;
+        margin-bottom: 0;
+        margin-top: 3vh;
+      }
+    }
+  }
+}
 
 .error {
-  background-color: red;
+  background-color: #e51313;
 }
 
 .hidden {
@@ -70,5 +112,6 @@ h1 {
 }
 
 #user-feedback {
-  height: 25px;
+  font-size: 150%;
+  height: 35px;
 }

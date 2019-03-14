@@ -1,7 +1,7 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const createErrand = () => {
+const createErrand = (formData) => {
   return $.ajax({
     url: config.apiUrl + `/errands`,
     method: 'POST',
@@ -12,14 +12,14 @@ const createErrand = () => {
   })
 }
 
-const updateErrand = (id) => {
+const updateErrand = (id, formData) => {
   return $.ajax({
     url: config.apiUrl + `/errands/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
-    // data: newMove
+    },
+    data: {}
   })
 }
 
@@ -33,8 +33,19 @@ const getErrands = () => {
   })
 }
 
+const deleteErrand = (id) => {
+  return $.ajax({
+    url: config.apiUrl + `/errands/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createErrand,
   updateErrand,
+  deleteErrand,
   getErrands
 }
