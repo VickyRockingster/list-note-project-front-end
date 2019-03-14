@@ -107,10 +107,6 @@ h1 {
   background-color: #e51313;
 }
 
-.hidden {
-  display: none;
-}
-
 .my-lists-page {
   display: flex;
   flex-direction: column;
@@ -137,6 +133,10 @@ h1 {
 
     }
   }
+}
+
+.hidden {
+  display: none;
 }
 
 #user-feedback {
