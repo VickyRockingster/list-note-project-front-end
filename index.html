@@ -51,7 +51,7 @@
         </form>
       </div>
       </section>
-      <section class="account-page">
+      <section class="account-page hidden">
         <h1>Account</h1>
         <div>
           <label>Name:</label>
@@ -74,6 +74,32 @@
           <span class="my-lists"></span>
         </div>
       </section>
-      <section class="my-lists-page hidden"></section>
+      <section class="my-lists-page">
+        <h1>Lists</h1>
+        <h3>Add Errands</h3>
+        <form id="create-errand">
+          <div>
+            <label> Errand:</label>
+            <input name="name-of-errand" type="text" placeholder="Errand (e.g. Deposit check)">
+          </div>
+          <div>
+            <label>Place:</label>
+            <input name="location" type="text" placeholder="Location (e.g. Bank)">
+          </div>
+          <div>
+            <label>Do On:</label>
+            <input name="due-date" type="date" placeholder="Due Date (e.g. YYYY-MM-DD)">
+          </div>
+          <div>
+            <label>Do By:</label>
+            <input name="due-time" type="text" placeholder="Due Time (e.g. )">
+          </div>
+          <div>
+            <label>Check if done:</label>
+            <input name="due-status" type="checkbox" value="true">
+          </div>
+          <button type="submit" value="Create Errand">Add Errand</button>
+        </form>
+      </section>
     </body>
 </html>

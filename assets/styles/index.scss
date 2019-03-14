@@ -111,6 +111,34 @@ h1 {
   display: none;
 }
 
+.my-lists-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 3vw;
+
+  > form {
+
+    border: solid #680404;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    > button {
+      max-height: 30px;
+    }
+
+    > div {
+      align-items: center;
+      display: flex;
+      flex-flow: column;
+      font-size: 18px;
+      padding-left: 3px;
+
+    }
+  }
+}
+
 #user-feedback {
   font-size: 150%;
   height: 35px;
