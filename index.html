@@ -69,12 +69,8 @@
             <button type="submit" value="Change Password">Submit</button>
           </form>
         </div>
-        <div>
-          <label>My Lists:</label>
-          <span class="my-lists"></span>
-        </div>
       </section>
-      <section class="my-lists-page">
+      <section class="my-lists-page hidden">
         <h1>Lists</h1>
         <h3>Add Errands</h3>
         <form id="create-errand">
@@ -95,13 +91,13 @@
             <input name="errand[due_time]" type="time">
           </div>
           <div>
-            <div>
-              <label>Check if done:</label>
-              <input name="errand[done_status]" type="checkbox" value="true">
-            </div>
+            <label>Check if done:</label>
+            <input name="errand[done_status]" type="checkbox" value="true">
           </div>
           <button type="submit" value="Create Errand">Add Errand</button>
         </form>
+        <h3>All Errands</h3>
+        <div id="get-errands"></div>
       </section>
     </body>
 </html>
