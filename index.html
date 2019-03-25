@@ -6,7 +6,6 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -76,26 +75,28 @@
         <form id="create-errand">
           <div>
             <label> Errand:</label>
-            <input name="name-of-errand" type="text" placeholder="Errand (e.g. Deposit check)">
+            <input name="errand[errand_name]" type="text" placeholder="Errand (e.g. Deposit check)" required=true>
           </div>
           <div>
             <label>Place:</label>
-            <input name="location" type="text" placeholder="Location (e.g. Bank)">
+            <input name="errand[location]" type="text" placeholder="Location (e.g. Bank)" required=true>
           </div>
           <div>
-            <label>Do On:</label>
-            <input name="due-date" type="date" placeholder="Due Date (e.g. YYYY-MM-DD)">
+            <label>Do On (Date):</label>
+            <input name="errand[due_date]" type="date">
           </div>
           <div>
-            <label>Do By:</label>
-            <input name="due-time" type="text" placeholder="Due Time (e.g. 3:30pm)">
+            <label>Do By (Time):</label>
+            <input name="errand[due_time]" type="time">
           </div>
           <div>
             <label>Check if done:</label>
-            <input name="due-status" type="checkbox" value="true">
+            <input name="errand[done_status]" type="checkbox" value="true">
           </div>
           <button type="submit" value="Create Errand">Add Errand</button>
         </form>
+        <h3>All Errands</h3>
+        <div id="get-errands"></div>
       </section>
     </body>
 </html>

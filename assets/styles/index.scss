@@ -130,7 +130,51 @@ h1 {
       flex-flow: column;
       font-size: 18px;
       padding: 3px;
+    }
+  }
+}
 
+.other-label {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+#get-errands {
+  display: flex;
+  flex-flow: column-reverse wrap;
+
+
+  > form {
+    border: solid #680404;
+    display: flex;
+    flex-flow: column wrap;
+    font-size: 18px;
+
+    > button {
+      height: 30px;
+      width: 70px;
+    }
+
+    > div {
+      align-items: center;
+      display: flex;
+      flex-flow: row wrap;
+
+      > input,
+      label,
+      p {
+        border: 8px;
+        margin: 2px;
+        padding: 8px;
+      }
+
+      > label {
+        font-size: 22px;
+        font-weight: bold;
+      }
     }
   }
 }

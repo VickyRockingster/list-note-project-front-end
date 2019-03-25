@@ -8,7 +8,7 @@ const createErrand = (formData) => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {}
+    data: formData
   })
 }
 
@@ -19,7 +19,7 @@ const updateErrand = (id, formData) => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {}
+    data: formData
   })
 }
 

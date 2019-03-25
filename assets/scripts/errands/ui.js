@@ -1,19 +1,15 @@
 const store = require('../store.js')
+const getErrandsTemplate = require('../templates/get-errands-template.handlebars')
 // const getFormFields = require('../../../lib/get-form-fields.js')
 
 const createErrandSuccess = function (data) {
-}
-
-const updateErrandSuccess = function (data) {
-  store.errands = data.errands
+  $('#create-errand').trigger('reset')
 }
 
 const getErrandsSuccess = function (data) {
   store.errands = data.errands
-}
-
-const deleteErrandSuccess = function (data) {
-  store.errands = data.errands
+  const formatErrandsHtml = getErrandsTemplate({errands: store.errands})
+  $('#get-errands').html(formatErrandsHtml)
 }
 
 const failure = function () {
@@ -27,8 +23,6 @@ const failure = function () {
 
 module.exports = {
   createErrandSuccess,
-  updateErrandSuccess,
   getErrandsSuccess,
-  deleteErrandSuccess,
   failure
 }
