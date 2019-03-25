@@ -25,11 +25,12 @@ home, etc), so that I can organize my life.
 As a user, I want each list to have a do-by or do-on date attached to it.
 As a user, I want to set reminders to finish my to-do lists by a certain time,
 so that I can have a reminder to do them when they need to be done.
-As a user, I want to be able to cross off items as I do them so I can feel a
-sense of accomplishment when I finish something.
+
+Technologies Used: AJAX, CSS3, Handlebars, HTML5, JavaScript, jQuery, Ruby on Rails, Sass
+
 
 Process:
 After creating my front- and back-end repositories, I actually started by creating a lot of the html in the front-end. I wanted to clarify in my mind what I wanted my user to be able to do, and utilizing the wireframe so structure the html helped me do that. This way, I was better able to design a back end where my API requests would be specific and targetted without getting lost in the process.
 After organizing my html, I used my ERD table to start the process of meeting MVP; that is, creating a one-to-many relationship between the users table and the errands table. After I was successfully able to CRUD user via curl-script, I tested my ability to CRUD errands after logging in as a user. After fixing a mix-up with :user and :current_user, I was able to do so successfully, so that any user could CRUD an errand, and each user only had access to their own errands on the errands table.
 Then, I moved on to building out the front-end, so that users can sign-up, sign-in, and create errands. I went through the same process of making sure that a signed-in user could CRUD on the errands table.
-I ran into a lot more issues on the front end, however, and successfully CRUDing my errands resource table. Even though I am able to successfully GET and CREATE errands, I am still formatting the correct way to UPDATE and DELETE them. Once I have done that, I can move on to building out the 'chores' and 'to-get' resources tables in the back end and creating them in the front end.
+I ran into a lot more issues on the front end, however, specifically CRUDing my errands resource table. Even though I was quickly able to successfully GET and POST errands, It took a long time to figure out how to PATCH and DELETE as well, especially the former. Working with checkboxes in the done_status column required custom formatting before I could send the data to the back-end. Likewise, using Handlebars to update information required careful management of event bubbling and button types. Now that I can successfully CRUD the errands table, though, the next step is building out the 'chores' and 'to-get' resources.
