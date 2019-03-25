@@ -27,27 +27,40 @@ const onCreateErrand = (event) => {
     .catch(ui.failure)
 }
 
-const formatUpdateErrandData = function (event, id) {
+const formatUpdateErrandData = function (event) {
   const formattedData = getFormFields(event.target)
-  console.log('formattedData:' + JSON.stringify(formattedData))
-  console.log('store.errands:' + JSON.stringify(store.errands))
+  const errand = formattedData.errand
+  const formattedErrand = {}
 
-  for (let i = 0; i < store.errands.length; i++) {
-    if (id === store.errands[i]) {
-      if (formattedData.errand_name === '') {
-        formattedData.errand_name = store.errand.errand_name
-      }
-      if (formattedData.location === '') {
-        formattedData.location = store.errand.location
-      }
-      if (!(formattedData.due_date)) {
-        formattedData.due_date = store.errand.due_date
-      }
-      if (!(formattedData.due_time)) {
-        formattedData.due_time = store.errand.due_time
-      }
+  Object.keys(errand).forEach(key => {
+    switch (key) {
+      case 'errand_name':
+        if (errand['errand_name']) {
+          formattedErrand.errand_name = errand['errand_name']
+        }
+        break
+      case 'location':
+        if (errand['location']) {
+          formattedErrand.location = errand['location']
+        }
+        break
+      case 'due_date':
+        if (errand['due_date']) {
+          formattedErrand.due_date = errand['due_date']
+        }
+        break
+      case 'due_time':
+        if (errand['due_time']) {
+          formattedErrand.due_time = errand['due_time']
+        }
+        break
+      case 'done_status':
+        if (errand['done_status']) {
+          formattedErrand.done_status = errand['done_status']
+        }
     }
-  }
+  })
+  formattedData.errand = formattedErrand
   return formattedData
 }
 
@@ -55,15 +68,13 @@ const onUpdateErrand = (event) => {
   event.preventDefault()
 
   const errandId = $(event.target).closest('form').data('id')
-  const formData = formatUpdateErrandData(event, errandId)
-  console.log('formData:' + JSON.stringify(formData))
+  const formData = formatUpdateErrandData(event)
+  // console.log('formData:' + JSON.stringify(formData))
 
-  $(`#${errandId}`).trigger('reset')
+  // $(`#${errandId}`).trigger('reset')
   api.updateErrand(errandId, formData)
     .then(ui.updateErrandSuccess)
-    .then(() => {
-      onGetErrands(event)
-    })
+    .then(() => onGetErrands(event))
     .catch(ui.failure)
 }
 
@@ -71,9 +82,7 @@ const onDeleteErrand = (event) => {
   event.preventDefault()
   const errandId = $(event.target).closest('form').data('id')
   api.deleteErrand(errandId)
-    .then(() => {
-      onGetErrands(event)
-    })
+    .then(() => onGetErrands(event))
     .catch(ui.failure)
 }
 
@@ -99,7 +108,7 @@ const addHandlers = function () {
   $('#my-lists').on('submit', showMyListsPage)
   $('#create-errand').on('submit', onCreateErrand)
   $('#get-errands').on('submit', '.errand', onUpdateErrand)
-  $('#get-errands').on('change', '.errand', onDeleteErrand)
+  $('#get-errands').on('check', '.errand', onDeleteErrand)
 }
 
 module.exports = {

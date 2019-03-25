@@ -1,5 +1,5 @@
 const store = require('../store.js')
-const getBooksTemplate = require('../templates/get-errands-template.handlebars')
+const getErrandsTemplate = require('../templates/get-errands-template.handlebars')
 // const getFormFields = require('../../../lib/get-form-fields.js')
 
 const createErrandSuccess = function (data) {
@@ -8,7 +8,7 @@ const createErrandSuccess = function (data) {
 
 const getErrandsSuccess = function (data) {
   store.errands = data.errands
-  const formatErrandsHtml = getBooksTemplate({errands: store.errands})
+  const formatErrandsHtml = getErrandsTemplate({errands: store.errands})
   $('#get-errands').html(formatErrandsHtml)
 }
 

@@ -2,19 +2,19 @@
 {{#each errands as |errand|}}
 
   <form class="errand" data-id="{{errand.id}}">
-    <div>
+    <div class="update-field update-errand-name">
       <label> Errand:</label>
       <p>{{limit errand.errand_name 25}}</p>
       <p class="other-label">Change Errand:</p>
       <input name="errand[errand_name]" type="text" placeholder="Errand (e.g. Pick up dry-cleaning)">
     </div>
-    <div>
+    <div class="update-field update-location">
       <label>Place:</label>
       <p>{{errand.location}}</p>
       <p class="other-label">Change Location:</p>
       <input name="errand[location]" type="text" placeholder="Location (e.g. Cleaner's)">
     </div>
-    <div>
+    <div class="update-field update-due-date">
       {{#if errand.due_date}}
       <label>Do On (Date):</label>
       <p>{{errand.due_date}}</p>
@@ -25,7 +25,7 @@
       <input name="errand[due_date]" type="date">
       {{/if}}
     </div>
-    <div>
+    <div class="update-field update-due-time">
       {{#if errand.due_time}}
       <label>Do By (Time):</label>
       <p>{{errand.due_time}}</p>
@@ -36,7 +36,7 @@
       <input name="errand[due_time]" type="time">
       {{/if}}
     </div>
-    <div>
+    <div class="update-field update-done-status">
       {{#if errand.done_status}}
       <label>Done?</label>
       <p> Yes!</p>
