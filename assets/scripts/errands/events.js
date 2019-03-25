@@ -21,14 +21,15 @@ const onCreateErrand = (event) => {
   const formData = formatCreateErrandData(event)
   api.createErrand(formData)
     .then(ui.createErrandSuccess)
-    .then(() => {
-      onGetErrands(event)
-    })
+    .then(() => { onGetErrands(event) })
     .catch(ui.failure)
 }
 
 const formatUpdateErrandData = function (event) {
   const formattedData = getFormFields(event.target)
+  formattedData.errand = formattedErrand
+  // formattedData.errand.done_status === 'true' ? formattedData.errand.done_status = true
+  //   : formattedData.errand.done_status = false
   const errand = formattedData.errand
   const formattedErrand = {}
 
@@ -55,12 +56,12 @@ const formatUpdateErrandData = function (event) {
         }
         break
       case 'done_status':
-        if (errand['done_status']) {
-          formattedErrand.done_status = errand['done_status']
+        if (errand['done_status'] !== '') {
+          formattedErrand.done_status === 'true' ? formattedErrand.done_status = true
+            : formattedErrand.done_status = false
         }
     }
   })
-  formattedData.errand = formattedErrand
   return formattedData
 }
 
@@ -69,7 +70,6 @@ const onUpdateErrand = (event) => {
 
   const errandId = $(event.target).closest('form').data('id')
   const formData = formatUpdateErrandData(event)
-  // console.log('formData:' + JSON.stringify(formData))
 
   // $(`#${errandId}`).trigger('reset')
   api.updateErrand(errandId, formData)
@@ -108,7 +108,7 @@ const addHandlers = function () {
   $('#my-lists').on('submit', showMyListsPage)
   $('#create-errand').on('submit', onCreateErrand)
   $('#get-errands').on('submit', '.errand', onUpdateErrand)
-  $('#get-errands').on('check', '.errand', onDeleteErrand)
+  $('#get-errands').on('indeterminate', '.errand', onDeleteErrand)
 }
 
 module.exports = {

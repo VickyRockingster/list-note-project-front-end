@@ -52,6 +52,15 @@
       <label>Check to delete this errand:</label>
       <input name="delete_errand" type="checkbox" value="delete">
     </div>
+    <!-- <div class="custom-control custom-checkbox">
+      <label class="custom-control-label" for="delete-errand">Check to delete this checkbox:</label>
+      <input type="checkbox" class="custom-control-input" value="true" id="delete-errand">
+    </div> -->
+    <div class="btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary">
+        <input type="checkbox" checked autocomplete="off"> Delete
+      </label>
+    </div>
   </form>
 
 {{/each}}
