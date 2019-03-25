@@ -27,7 +27,6 @@ const onCreateErrand = (event) => {
 
 const formatUpdateErrandData = function (event) {
   const formattedData = getFormFields(event.target)
-  formattedData.errand = formattedErrand
   // formattedData.errand.done_status === 'true' ? formattedData.errand.done_status = true
   //   : formattedData.errand.done_status = false
   const errand = formattedData.errand
@@ -57,11 +56,12 @@ const formatUpdateErrandData = function (event) {
         break
       case 'done_status':
         if (errand['done_status'] !== '') {
-          formattedErrand.done_status === 'true' ? formattedErrand.done_status = true
+          errand.done_status === 'true' ? formattedErrand.done_status = true
             : formattedErrand.done_status = false
         }
     }
   })
+  formattedData.errand = formattedErrand
   return formattedData
 }
 
