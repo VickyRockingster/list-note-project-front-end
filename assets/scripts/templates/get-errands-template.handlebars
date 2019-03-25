@@ -43,24 +43,17 @@
       <p class="other-label">Change Done Status</p>
       <input name="errand[done_status]" type="checkbox" value="false">
       {{else}}
+      <label>Done?</label>
+      <p>No</p>
       <label>Change Done Status</label>
       <input name="errand[done_status]" type="checkbox" value="true">
       {{/if}}
     </div>
     <button type="submit" value="Update Errand">Update</button>
-    <div>
-      <label>Check to delete this errand:</label>
-      <input name="delete_errand" type="checkbox" value="delete">
+    <div class="delete-errand">
+      <button type="reset" value="Delete Errand">Delete</button>
     </div>
-    <!-- <div class="custom-control custom-checkbox">
-      <label class="custom-control-label" for="delete-errand">Check to delete this checkbox:</label>
-      <input type="checkbox" class="custom-control-input" value="true" id="delete-errand">
-    </div> -->
-    <div class="btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary">
-        <input type="checkbox" checked autocomplete="off"> Delete
-      </label>
-    </div>
+
   </form>
 
 {{/each}}

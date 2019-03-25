@@ -1,11 +1,28 @@
 const ui = require('./ui.js')
 const api = require('./api.js')
-const store = require('../store.js')
+// const store = require('../store.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
+
+const onDeleteErrand = (event) => {
+  const errandId = $(event.target).closest('form').data('id')
+  // event.stopPropogation()
+  // console.log('from onDeleteErrand, this:' + this)
+  // if (this.checked) {
+  api.deleteErrand(errandId)
+    .then(() => onGetErrands(event))
+    .catch(ui.failure)
+}
+
+// const addDeleteErrandListener = function () {
+//   // const deleteButton = document.querySelector('.delete-errand')
+//   // deleteButton.addEventListener('submit', onDeleteErrand)
+//   document.querySelector('.delete-errand').addEventListener('reset', onDeleteErrand)
+// }
 
 const onGetErrands = (event) => {
   api.getErrands()
     .then(ui.getErrandsSuccess)
+    // .then(addDeleteErrandListener)
     .catch(ui.failure)
 }
 
@@ -27,8 +44,6 @@ const onCreateErrand = (event) => {
 
 const formatUpdateErrandData = function (event) {
   const formattedData = getFormFields(event.target)
-  // formattedData.errand.done_status === 'true' ? formattedData.errand.done_status = true
-  //   : formattedData.errand.done_status = false
   const errand = formattedData.errand
   const formattedErrand = {}
 
@@ -71,20 +86,13 @@ const onUpdateErrand = (event) => {
   const errandId = $(event.target).closest('form').data('id')
   const formData = formatUpdateErrandData(event)
 
-  // $(`#${errandId}`).trigger('reset')
   api.updateErrand(errandId, formData)
     .then(ui.updateErrandSuccess)
     .then(() => onGetErrands(event))
     .catch(ui.failure)
 }
 
-const onDeleteErrand = (event) => {
-  event.preventDefault()
-  const errandId = $(event.target).closest('form').data('id')
-  api.deleteErrand(errandId)
-    .then(() => onGetErrands(event))
-    .catch(ui.failure)
-}
+// $(`#${errandId}`).trigger('reset')
 
 const showAccountPage = (event) => {
   event.preventDefault()
@@ -108,7 +116,7 @@ const addHandlers = function () {
   $('#my-lists').on('submit', showMyListsPage)
   $('#create-errand').on('submit', onCreateErrand)
   $('#get-errands').on('submit', '.errand', onUpdateErrand)
-  $('#get-errands').on('indeterminate', '.errand', onDeleteErrand)
+  $('#get-errands').on('reset', '.errand', onDeleteErrand)
 }
 
 module.exports = {
