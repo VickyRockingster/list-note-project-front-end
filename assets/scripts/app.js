@@ -18,7 +18,7 @@ $(() => {
     event.preventDefault()
     choreEvents.onGetChores(event)
     errandEvents.onGetErrands(event)
-    $('#my-lists-button').hide()
+    $('#my-lists-button').toggle()
     $('#account-button').show()
     $('.my-lists-page').show()
     $('.account-page').hide()
@@ -26,7 +26,7 @@ $(() => {
   $('#account-button').on('submit', (event) => {
     event.preventDefault()
     $('#my-lists-button').show()
-    $('#account-button').hide()
+    $('#account-button').toggle()
     $('.my-lists-page').hide()
     $('.account-page').show()
   })
