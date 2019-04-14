@@ -1,0 +1,59 @@
+
+{{#each chores as |chore|}}
+
+  <form class="chore" data-id="{{chore.id}}">
+    <div class="update-field update-chore-name">
+      <label>Chore:</label>
+      <p>{{limit chore.chore_name 25}}</p>
+      <p class="other-label">Change Chore:</p>
+      <input name="chore[chore_name]" type="text" placeholder="Chore (e.g. Pick up dry-cleaning)">
+    </div>
+
+    <div class="update-field update-due-date">
+      {{#if chore.due_date}}
+      <label>Do On (Date):</label>
+      <p>{{chore.due_date}}</p>
+      <p class="other-label">Change Date:</p>
+      <input name="chore[due_date]" type="date">
+      {{else}}
+      <label> Add a Date:</label>
+      <input name="chore[due_date]" type="date">
+      {{/if}}
+    </div>
+    <div class="update-field update-due-time">
+      {{#if chore.due_time}}
+      <label>Do By (Time):</label>
+      <p>{{chore.due_time}}</p>
+      <p class="other-label">Change Time:</p>
+      <input name="chore[due_time]" type="time">
+      {{else}}
+      <label>Add a Time:</label>
+      <input name="chore[due_time]" type="time">
+      {{/if}}
+    </div>
+
+    <div class="update-field update-done-status">
+      {{#if chore.done_status}}
+      <label>Done?</label>
+      <p> Yes!</p>
+      <p class="other-label">Change Done Status</p>
+      <input name="chore[done_status]" type="checkbox" value="false">
+      {{else}}
+      <label>Done?</label>
+      <p>No</p>
+      <label>Change Done Status</label>
+      <input name="chore[done_status]" type="checkbox" value="true">
+      {{/if}}
+    </div>
+
+    <div class="update-chore">
+      <button type="submit" value="Update Chore">Update</button>
+    </div>
+
+    <div class="delete-chore">
+      <button type="reset" value="Delete Chore">Delete</button>
+    </div>
+
+  </form>
+
+{{/each}}
