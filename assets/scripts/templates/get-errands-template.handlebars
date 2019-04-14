@@ -36,11 +36,16 @@
       <input name="errand[due_time]" type="time">
       {{/if}}
     </div>
+
+
+
     <div class="update-field update-done-status">
+
       {{#if errand.done_status}}
       <label>Done?</label>
       <p> Yes!</p>
       <p class="other-label">Change Done Status</p>
+
       <input name="errand[done_status]" type="checkbox" value="false">
       {{else}}
       <label>Done?</label>
@@ -53,6 +58,9 @@
     <div class="delete-errand">
       <button type="reset" value="Delete Errand">Delete</button>
     </div>
+
+
+
 
   </form>
 

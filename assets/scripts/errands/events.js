@@ -93,31 +93,32 @@ const onUpdateErrand = (event) => {
 
 // $(`#${errandId}`).trigger('reset')
 
-const showAccountPage = (event) => {
-  event.preventDefault()
-  $('#my-lists').removeClass('hidden')
-  $('#account').addClass('hidden')
-  $('.my-lists-page').addClass('hidden')
-  $('.account-page').removeClass('hidden')
-}
-
-const showMyListsPage = (event) => {
-  event.preventDefault()
-  onGetErrands(event)
-  $('#my-lists').addClass('hidden')
-  $('#account').removeClass('hidden')
-  $('.my-lists-page').removeClass('hidden')
-  $('.account-page').addClass('hidden')
-}
+// const showAccountPage = (event) => {
+//   event.preventDefault()
+//   $('#my-lists').removeClass('hidden')
+//   $('#account').addClass('hidden')
+//   $('.my-lists-page').addClass('hidden')
+//   $('.account-page').removeClass('hidden')
+// }
+//
+// const showMyListsPage = (event) => {
+//   event.preventDefault()
+//   onGetErrands(event)
+//   $('#my-lists').addClass('hidden')
+//   $('#account').removeClass('hidden')
+//   $('.my-lists-page').removeClass('hidden')
+//   $('.account-page').addClass('hidden')
+// }
 
 const addHandlers = function () {
-  $('#account').on('submit', showAccountPage)
-  $('#my-lists').on('submit', showMyListsPage)
+  // $('#account').on('submit', showAccountPage)
+  // $('#my-lists').on('submit', showMyListsPage)
   $('#create-errand').on('submit', onCreateErrand)
   $('#get-errands').on('submit', '.errand', onUpdateErrand)
   $('#get-errands').on('reset', '.errand', onDeleteErrand)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetErrands
 }
