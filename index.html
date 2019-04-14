@@ -74,7 +74,7 @@
         <h3>Add Errands</h3>
         <form id="create-errand">
           <div>
-            <label> Errand:</label>
+            <label>Errand:</label>
             <input name="errand[errand_name]" type="text" placeholder="Errand (e.g. Deposit check)" required=true>
           </div>
           <div>
@@ -97,6 +97,30 @@
         </form>
         <h3>All Errands</h3>
         <div id="get-errands"></div>
+
+        <h3>Add Chores</h3>
+        <form id="create-chore">
+          <div>
+            <label>Chore:</label>
+            <input name="chore[chore_name]" type="text" placeholder= "Chore (e.g. Do laundry)" required>
+          </div>
+
+          <div>
+            <label>Do On (Date):</label>
+            <input name="chore[due_date]" type="date">
+          </div>
+          <div>
+            <label>Do By (Time):</label>
+            <input name="chore[due_time]" type="time">
+          </div>
+          <div>
+            <label>Check if done:</label>
+            <input name="chore[done_status]" type="checkbox" value="true">
+          </div>
+          <button type="submit" value="Create Chore">Add Chore</button>
+        </form>
+        <h3>All Chores</h3>
+        <div id="get-chores"></div>
       </section>
     </body>
 </html>
