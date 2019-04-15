@@ -22,7 +22,10 @@ const signInSuccess = function (data) {
 const signOutSuccess = function (data) {
   store.user = null
   $('#user-feedback').text('You have successfully signed out!')
-  $('#sign-out').trigger('reset')
+  // $('#sign-out').trigger('reset')
+  $('nav').hide()
+  $('section').hide()
+  $('.authentication').show()
   setTimeout(() => {
     $('#user-feedback').text('')
   }, 3000)

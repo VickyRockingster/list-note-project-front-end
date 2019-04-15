@@ -30,12 +30,8 @@ const onSignOut = (event) => {
 
   authApi.signOut(data)
     .then(authUi.signOutSuccess)
+    // .then(() => {
     .catch(authUi.failure)
-    .then(() => {
-      $('nav').addClass('hidden')
-      $('section').addClass('hidden')
-      $('.authentication').removeClass('hidden')
-    })
 }
 
 const onChangePassword = (event) => {
