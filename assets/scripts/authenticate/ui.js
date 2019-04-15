@@ -11,7 +11,7 @@ const signInSuccess = function (data) {
   $('#user-feedback').text('You have successfully signed in!')
   $('#sign-in').trigger('reset')
   $('nav').removeClass('hidden')
-  $('#account').addClass('hidden')
+  $('#account-button').addClass('hidden')
   $('.authentication').addClass('hidden')
   $('.account-page').removeClass('hidden')
   setTimeout(() => {
