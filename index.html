@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>List Note</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="hidden">
+        <form id="sign-out">
+         <button type="submit" value="Sign Out">Sign Out</button>
+        </form>
+        <form id="account-button">
+          <button type="submit" value="Account">Account</button>
+        </form>
+        <form id="my-lists-button">
+          <button type="submit" value="Get Lists">My Lists</button>
+        </form>
+      </nav>
+      <p id="user-feedback"></p>
+      <section class="authentication">
+        <h1>Welcome to List Note</h1>
+        <div class="authentication-forms">
+        <form id="sign-up">
+          <h3>SIGN UP</h3>
+          <label for="signup-first-name">First Name</label>
+          <input name="credentials[first_name]" type="text" placeholder="First Name">
+          <label for="signup-last-name">Last Name</label>
+          <input name="credentials[last_name]" type="text" placeholder="Last Name">
+          <label for="signup-email">Email</label>
+          <input name="credentials[email]" type="text" placeholder="Email">
+          <label for="signup-password">Password</label>
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <label for="signup-email">Password Confirmation</label>
+          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+          <button type="submit" value="Sign Up">Sign Up</button>
+        </form>
+        <form id="sign-in">
+          <h3>SIGN IN</h3>
+          <label for="signin-email">Email</label>
+          <input name="credentials[email]" type="text" placeholder="Email">
+          <label for="signin-password">Password</label>
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <button type="submit" value="Sign In">Sign In</button>
+        </form>
+      </div>
+      </section>
+      <section class="account-page hidden">
+        <h1>Account</h1>
+        <div>
+          <label>Name:</label>
+          <span class="full-name"></span>
+        </div>
+        <div>
+          <label>Email:</label>
+          <span class="email"></span>
+        </div>
+        <div>
+          <form id="change-password">
+            <label for="change-password">Change Password:</label>
+            <input name="passwords[old]" type="password" placeholder="Old Password">
+            <input name="passwords[new]" type="password" placeholder="New Password">
+            <button type="submit" value="Change Password">Submit</button>
+          </form>
+        </div>
+      </section>
+      <section class="my-lists-page hidden">
+        <h1>Lists</h1>
+        <h3>Add Errands</h3>
+        <form id="create-errand">
+          <div>
+            <label>Errand:</label>
+            <input name="errand[errand_name]" type="text" placeholder="Errand (e.g. Deposit check)" required=true>
+          </div>
+          <div>
+            <label>Place:</label>
+            <input name="errand[location]" type="text" placeholder="Location (e.g. Bank)" required=true>
+          </div>
+          <div>
+            <label>Do On (Date):</label>
+            <input name="errand[due_date]" type="date">
+          </div>
+          <div>
+            <label>Do By (Time):</label>
+            <input name="errand[due_time]" type="time">
+          </div>
+          <div>
+            <label>Check if done:</label>
+            <input name="errand[done_status]" type="checkbox" value="true">
+          </div>
+          <button type="submit" value="Create Errand">Add Errand</button>
+        </form>
+        <h3>All Errands</h3>
+        <div id="get-errands"></div>
+
+        <h3>Add Chores</h3>
+        <form id="create-chore">
+          <div>
+            <label>Chore:</label>
+            <input name="chore[chore_name]" type="text" placeholder= "Chore (e.g. Do laundry)" required>
+          </div>
+
+          <div>
+            <label>Do On (Date):</label>
+            <input name="chore[due_date]" type="date">
+          </div>
+          <div>
+            <label>Do By (Time):</label>
+            <input name="chore[due_time]" type="time">
+          </div>
+          <div>
+            <label>Check if done:</label>
+            <input name="chore[done_status]" type="checkbox" value="true">
+          </div>
+          <button type="submit" value="Create Chore">Add Chore</button>
+        </form>
+        <h3>All Chores</h3>
+        <div id="get-chores"></div>
+      </section>
+    </body>
+</html>
